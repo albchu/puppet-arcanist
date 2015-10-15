@@ -1,41 +1,35 @@
 # == Class: arcanist
 #
-# Full description of class arcanist here.
+# This module manages and sets up arcanist on a node machine.
 #
 # === Parameters
 #
-# Document parameters here.
-#
-# [*sample_parameter*]
-#   Explanation of what this parameter affects and what it defaults to.
-#   e.g. "Specify one or more upstream ntp servers as an array."
-#
-# === Variables
-#
-# Here you should define a list of variables that this module would require.
-#
-# [*sample_variable*]
-#   Explanation of how this variable affects the funtion of this class and if
-#   it has a default. e.g. "The parameter enc_ntp_servers must be set by the
-#   External Node Classifier as a comma separated list of hostnames." (Note,
-#   global variables should be avoided in favor of class parameters as
-#   of Puppet 2.6.)
+# [*install_dir*]
+#   Specifies where arcanist and all its dependencies will be installed to.
+#   Directory must exist prior to arcanist install to that directory
+#   Default: '/opt/arcanist'
 #
 # === Examples
 #
 #  class { 'arcanist':
-#    servers => [ 'pool.ntp.org', 'ntp.local.company.com' ],
+#    install_dir => '/home/achu/arcanist',
 #  }
 #
 # === Authors
 #
-# Author Name <author@domain.com>
+# Author Name <albert.chu@synopsys.com>
 #
 # === Copyright
 #
-# Copyright 2015 Your name here, unless otherwise noted.
+# Copyright 2015 Synopsys
 #
-class arcanist {
+class arcanist (
+  $install_dir = $arcanist::params::install_dir,
+  $arcanist_repo = $arcanist::params::$arcanist_repo,
+  $libphutil_repo = $arcanist::params::$libphutil_repo
 
+) inherits arcanist::params
+{
 
 }
+
