@@ -1,0 +1,27 @@
+## MAC OS
+.DS_Store
+
+## TEXTMATE
+*.tmproj
+tmtags
+
+## EMACS
+*~
+\#*
+.\#*
+
+## VIM
+*.swp
+tags
+
+# JetBrains
+.idea/
+
+.bundle/
+.vagrant/
+log/
+pkg/
+spec/fixtures/
+.*.sw?
+.DS_store
+Gemfile.lock
