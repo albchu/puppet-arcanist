@@ -9,6 +9,14 @@
 #   Directory must exist prior to arcanist install to that directory
 #   Default: '/opt/arcanist'
 #
+#  [*arcanist_repo*]
+#    Specifies where to download the arcanist repo from
+#    Default: 'git://github.com/phacility/arcanist.git'
+#
+#  [*libphutil_repo*]
+#    Specifies where to download the libphutil repo from. It is a dependency that arcanist relies on
+#    Default: 'git://github.com/phacility/arcanist.git'
+#
 # === Examples
 #
 #  class { 'arcanist':
@@ -30,6 +38,15 @@ class arcanist (
 
 ) inherits arcanist::params
 {
-
+  vscrepo { "$install_dir/arcanist" :
+    ensure    =>  present,
+    provider  =>  git,
+    source    => $arcanist_repo
+  }
+  vscrepo { "$install_dir/libphutil" :
+    ensure    =>  present,
+    provider  =>  git,
+    source    => $arcanist_repo
+  }
 }
 
